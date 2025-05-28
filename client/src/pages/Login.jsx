@@ -57,7 +57,7 @@ function Login(props) {
                     <div className="flex-grow h-px bg-gray-300"></div>
                 </div>
                 <p className="text-sm text-center text-gray-600 mt-6">
-                    Don't have an account? <a href="#" className="text-blue-600 font-semibold hover:underline">Sign up</a>
+                    Don't have an account? <a href="/SignUp" className="text-blue-600 font-semibold hover:underline">Sign up</a>
                 </p>
             </div>
         </div>

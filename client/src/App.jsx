@@ -4,9 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
+import AppRoutes from './routes/AppRoutes';
 function App() {
   return (
-   <Home></Home>
+    <AppRoutes></AppRoutes>
   )
 }
 
