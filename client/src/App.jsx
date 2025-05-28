@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 function App() {
   return (
-    <h1>Hi<h1>
+    <h1>Hi</h1>
   )
 }
 
