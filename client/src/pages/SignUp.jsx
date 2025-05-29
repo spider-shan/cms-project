@@ -12,7 +12,7 @@ function SignUp(props) {
             }}
         >
             <div className="absolute top-0 left-0 w-full flex justify-center mt-8 z-10">
-                <h1 className="text-4xl font-extrabold text-blue-900 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl">
+                <h1 className="text-4xl font-extrabold text-blue-800 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl">
                     Skyline Institute of Technology
                 </h1>
             </div>
@@ -112,7 +112,7 @@ function SignUp(props) {
                     </div>
                     <button
                         type="submit"
-                        className="w-full py-3 font-bold text-lg text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg shadow-md hover:from-blue-700 hover:to-blue-600 transition transform hover:-translate-y-1 hover:scale-105"
+                        className="w-full py-3 font-bold text-lg text-white bg-gradient-to-r from-blue-700 to-blue-500 rounded-lg shadow-md hover:from-blue-700 hover:to-blue-600 transition transform hover:-translate-y-1 hover:scale-105"
                     >
                         Sign Up
                     </button>

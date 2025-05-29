@@ -2,23 +2,30 @@ import React from 'react';
 
 function Login(props) {
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+        <div
+            className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-700 via-purple-100 to-pink-100"
+            style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundAttachment: "fixed",
+            }}
+        >
+            <h1 className="text-4xl font-extrabold text-blue-800 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl mb-8">
+                Skyline Institute of Technology
+            </h1>
             <div className="w-full max-w-md p-10 space-y-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-200">
                 <div className="flex flex-col items-center">
-                    <svg className="w-14 h-14 text-blue-500 mb-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <h2 className="text-3xl font-extrabold text-gray-800 mb-1">Welcome Back</h2>
-                    <p className="text-gray-500 text-sm">Login to your account</p>
+                    <h2 className="text-3xl font-extrabold text-blue-700 mb-1">Welcome Back</h2>
+                    <p className="text-blue-700 text-sm">Login to your account</p>
                 </div>
                 <form className="space-y-6">
                     <div>
-                        <label className="block mb-2 text-sm font-semibold text-gray-700" htmlFor="email">
+                        <label className="block mb-2 text-sm font-semibold text-blue-700" htmlFor="email">
                             Email Address
                         </label>
                         <input
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition"
                             type="email"
                             id="email"
                             name="email"
@@ -28,11 +35,11 @@ function Login(props) {
                         />
                     </div>
                     <div>
-                        <label className="block mb-2 text-sm font-semibold text-gray-700" htmlFor="password">
+                        <label className="block mb-2 text-sm font-semibold text-blue-700" htmlFor="password">
                             Password
                         </label>
                         <input
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition"
                             type="password"
                             id="password"
                             name="password"
@@ -41,12 +48,12 @@ function Login(props) {
                             required
                         />
                         <div className="flex justify-end mt-1">
-                            <a href="#" className="text-xs text-blue-500 hover:underline">Forgot password?</a>
+                            <a href="#" className="text-xs text-blue-700 hover:underline">Forgot password?</a>
                         </div>
                     </div>
                     <button
                         type="submit"
-                        className="w-full py-3 font-bold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition"
+                        className="w-full py-3 font-bold text-white bg-blue-700 rounded-lg shadow-lg transition transform hover:scale-105 focus:scale-105"
                     >
                         Login
                     </button>
@@ -57,7 +64,7 @@ function Login(props) {
                     <div className="flex-grow h-px bg-gray-300"></div>
                 </div>
                 <p className="text-sm text-center text-gray-600 mt-6">
-                    Don't have an account? <a href="/SignUp" className="text-blue-600 font-semibold hover:underline">Sign up</a>
+                    Don't have an account? <a href="/SignUp" className="text-blue-700 font-semibold hover:underline">Sign up</a>
                 </p>
             </div>
         </div>
