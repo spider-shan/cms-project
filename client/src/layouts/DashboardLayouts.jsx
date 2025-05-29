@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Outlet } from 'react-router-dom';
 function DashboardLayouts(props) {
     return (
         <div className="min-h-screen flex flex-col">
@@ -20,7 +20,7 @@ function DashboardLayouts(props) {
                         </li>
                         <li className="ml-auto">
                             <a
-                                href="/dashboard/logout"
+                                href="/login"
                                 className="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-200 "
                             >
                                 Logout
@@ -29,8 +29,8 @@ function DashboardLayouts(props) {
                     </ul>
                 </nav>
             </header>
-            <main className="flex-1 p-8">
-                {props.children}
+            <main className="flex-1">
+                <Outlet />
             </main>
         </div>
     );

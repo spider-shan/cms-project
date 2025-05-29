@@ -1,25 +1,30 @@
 import React from 'react';
-
+import Skyline_bg from '../assets/photos/SkyLine_img-removebg.png';
+import { Link } from 'react-router-dom';
 function SignUp(props) {
     return (
         <div
             className="min-h-screen flex items-center justify-center"
-            style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundAttachment: "fixed",
-            }}
         >
-            <div className="absolute top-0 left-0 w-full flex justify-center mt-8 z-10">
-                <h1 className="text-4xl font-extrabold text-blue-800 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl">
-                    Skyline Institute of Technology
-                </h1>
-            </div>
-            <div className="w-full max-w-lg p-10 space-y-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-blue-200 relative z-20 mt-28">
-                <form className="space-y-6">
-                    <div className="flex flex-col items-center">
-                        {/* Boy and Girl Icon sized to a circle, no extra circle background */}
+            {/* Logo at top left corner */}
+                        <div className="absolute top-0 left-0 m-6 z-20 flex flex-col items-start">
+                            <Link to="/">
+                                <img
+                                    src={Skyline_bg}
+                                    alt="Skyline Institute Logo"
+                                    className="h-14 w-14 object-contain drop-shadow-lg mb-4"
+                                />
+                            </Link>
+                        </div>
+                        <div className="absolute top-0 left-0 w-full flex justify-center mt-8 z-10">
+                            <h1 className="text-4xl font-extrabold text-blue-800 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl">
+                                Skyline Institute of Technology
+                            </h1>
+                        </div>
+                        <div className="w-full max-w-lg p-10 space-y-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-blue-200 relative z-20 mt-28">
+                            <form className="space-y-6">
+                                <div className="flex flex-col items-center">
+                                    {/* Boy and Girl Icon sized to a circle, no extra circle background */}
                         <svg className="w-16 h-16 mb-4" viewBox="0 0 48 48" fill="none">
                             {/* Boy */}
                             <circle cx="16" cy="18" r="8" fill="#60a5fa" fillOpacity="0.9"/>
@@ -83,6 +88,24 @@ function SignUp(props) {
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
                             placeholder="e.g. Computer Science"
                         />
+                    </div>
+                    <div>
+                        <label htmlFor="gender" className="block mb-1 text-sm font-semibold text-blue-700">
+                            Gender
+                        </label>
+                        <select
+                            id="gender"
+                            name="gender"
+                            required
+                            className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition bg-white/0"
+                            defaultValue=""
+                        >
+                            <option value="" disabled>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="preferNotToSay">Prefer not to say</option>
+                        </select>
                     </div>
                     <div>
                         <label htmlFor="password" className="block mb-1 text-sm font-semibold text-blue-700">
