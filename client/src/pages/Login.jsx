@@ -1,22 +1,25 @@
 import React from 'react';
-
+import Skyline_bg from '../assets/photos/SkyLine_img-removebg.png';
+import { Link } from 'react-router-dom';
 function Login(props) {
     return (
         <div
-            className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-700 via-purple-100 to-pink-100"
-            style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundAttachment: "fixed",
-            }}
+            className="flex flex-col items-center justify-center min-h-screen font-sans relative"
         >
+            {/* Logo on top left corner, links to home */}
+            <Link to="/" className="absolute top-6 left-6 z-10">
+                <img
+                    src={Skyline_bg}
+                    alt="Skyline Logo"
+                    className="w-14 h-14 object-contain"
+                />
+            </Link>
             <h1 className="text-4xl font-extrabold text-blue-800 drop-shadow-lg bg-white/70 px-8 py-2 rounded-xl mb-8">
                 Skyline Institute of Technology
             </h1>
             <div className="w-full max-w-md p-10 space-y-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-200">
                 <div className="flex flex-col items-center">
-                    <h2 className="text-3xl font-extrabold text-blue-700 mb-1">Welcome Back</h2>
+                    <h2 className="text-3xl font-extrabold text-gray-700 mb-1">Welcome Back</h2>
                     <p className="text-blue-700 text-sm">Login to your account</p>
                 </div>
                 <form className="space-y-6">
@@ -64,7 +67,7 @@ function Login(props) {
                     <div className="flex-grow h-px bg-gray-300"></div>
                 </div>
                 <p className="text-sm text-center text-gray-600 mt-6">
-                    Don't have an account? <a href="/SignUp" className="text-blue-700 font-semibold hover:underline">Sign up</a>
+                    Don't have an account? <Link to="/SignUp" className="text-blue-700 font-semibold hover:underline">Sign up</Link>
                 </p>
             </div>
         </div>
