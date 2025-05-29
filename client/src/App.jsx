@@ -5,9 +5,10 @@ import './App.css'
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import AppRoutes from './routes/AppRoutes';
+import Introduction from './dashboard/Introduction';
 function App() {
   return (
-    <AppRoutes></AppRoutes>
+    <Introduction/>
   )
 }
 
