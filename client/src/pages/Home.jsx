@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Skyline_bg from '../assets/photos/SkyLine_img-removebg.png';
+
 function Home(props) {
     return (
         <div
@@ -12,7 +12,7 @@ function Home(props) {
             <header className="w-full flex justify-between items-center px-8 py-6 z-10">
                 <div className="flex items-center space-x-3">
                     <img
-                        src={Skyline_bg}
+                        src="src/assets/Skyline_img-removebg.png"
                         alt="Skyline Institute of Technology Logo"
                         className="w-14 h-14 rounded-full"
                     />

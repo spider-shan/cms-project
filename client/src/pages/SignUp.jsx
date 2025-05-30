@@ -1,5 +1,5 @@
 import React from 'react';
-import Skyline_bg from '../assets/photos/SkyLine_img-removebg.png';
+import Skyline_bg from '../assets/Skyline_img-removebg.png';
 import { Link } from 'react-router-dom';
 function SignUp(props) {
     return (
