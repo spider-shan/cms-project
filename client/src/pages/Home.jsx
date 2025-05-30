@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Skyline_bg from '../assets/photos/SkyLine_img-removebg.png';
+import Skyline_bg from '../assets/Skyline_img-removebg.png';
+
 function Home(props) {
     return (
         <div
