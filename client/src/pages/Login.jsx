@@ -1,7 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Skyline_bg from '../assets/Skyline_img-removebg.png';
+import  { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/AuthContext";
 function Login(props) {
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const { login } = useAuth();
+const navigate = useNavigate();
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
+        login(storedUser); // <-- If you have a `login()` method from context
+        navigate('/dashboard');
+    } else {
+        alert("Invalid credentials!");
+    }
+    
+};
     return (
         <div
             className="flex flex-col items-center justify-center min-h-screen font-sans relative"
@@ -22,7 +41,7 @@ function Login(props) {
                     <h2 className="text-3xl font-extrabold text-gray-700 mb-1">Welcome Back</h2>
                     <p className="text-blue-700 text-sm">Login to your account</p>
                 </div>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
                         <label className="block mb-2 text-sm font-semibold text-blue-700" htmlFor="email">
                             Email Address
@@ -30,6 +49,8 @@ function Login(props) {
                         <input
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition"
                             type="email"
+                             value={email}
+                             onChange={(e) => setEmail(e.target.value)}
                             id="email"
                             name="email"
                             placeholder="you@example.com"
@@ -44,6 +65,8 @@ function Login(props) {
                         <input
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent transition"
                             type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             id="password"
                             name="password"
                             placeholder="********"
@@ -51,7 +74,7 @@ function Login(props) {
                             required
                         />
                         <div className="flex justify-end mt-1">
-                            <a href="#" className="text-xs text-blue-700 hover:underline">Forgot password?</a>
+                            <Link to="/forgot-password" className="text-xs text-blue-700 hover:underline">Forgot password?</Link>
                         </div>
                     </div>
                     <button

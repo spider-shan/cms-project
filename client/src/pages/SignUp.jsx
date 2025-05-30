@@ -1,7 +1,37 @@
-import React from 'react';
+import React ,{ useState} from 'react';
 import Skyline_bg from '../assets/Skyline_img-removebg.png';
 import { Link } from 'react-router-dom';
 function SignUp(props) {
+    const [fullName, setFullName] = useState('');
+    const [studentId, setStudentId] = useState('');
+    const [email, setEmail] = useState('');
+    const [department, setDepartment] = useState('');
+    const [gender, setGender] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Basic validation
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+        
+        const userData = {
+            fullName,
+            studentId,
+            email,
+            department,
+            gender,
+            password,
+        };
+    
+        // Save to localStorage (simulated backend)
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        // Optional: redirect to login page
+        window.location.href = "/login";
+};
     return (
         <div
             className="min-h-screen flex items-center justify-center"
@@ -22,7 +52,7 @@ function SignUp(props) {
                             </h1>
                         </div>
                         <div className="w-full max-w-lg p-10 space-y-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-blue-200 relative z-20 mt-28">
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="flex flex-col items-center">
                                     {/* Boy and Girl Icon sized to a circle, no extra circle background */}
                         <svg className="w-16 h-16 mb-4" viewBox="0 0 48 48" fill="none">
@@ -43,6 +73,8 @@ function SignUp(props) {
                         </label>
                         <input
                             type="text"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
                             id="fullName"
                             name="fullName"
                             required
@@ -58,6 +90,8 @@ function SignUp(props) {
                             type="text"
                             id="studentId"
                             name="studentId"
+                            value={studentId}
+                            onChange={(e) => setStudentId(e.target.value)}
                             required
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
                             placeholder="Enter your student ID"
@@ -71,6 +105,8 @@ function SignUp(props) {
                             type="email"
                             id="email"
                             name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
                             placeholder="Enter your college email"
@@ -84,6 +120,8 @@ function SignUp(props) {
                             type="text"
                             id="department"
                             name="department"
+                            value={department}
+                            onChange={(e) => setDepartment(e.target.value)}
                             required
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
                             placeholder="e.g. Computer Science"
@@ -96,6 +134,8 @@ function SignUp(props) {
                         <select
                             id="gender"
                             name="gender"
+                            value={gender}
+                             onChange={(e) => setGender(e.target.value)}
                             required
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition bg-white/0"
                             defaultValue=""
@@ -113,6 +153,8 @@ function SignUp(props) {
                         </label>
                         <input
                             type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             id="password"
                             name="password"
                             required
@@ -128,6 +170,8 @@ function SignUp(props) {
                             type="password"
                             id="confirmPassword"
                             name="confirmPassword"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                             className="w-full px-4 py-3 border border-blue-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
                             placeholder="Re-enter your password"
