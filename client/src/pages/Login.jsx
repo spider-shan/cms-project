@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Skyline_bg from '../assets/Skyline_img-removebg.png';
 function Login(props) {
     return (
         <div
@@ -8,7 +9,7 @@ function Login(props) {
             {/* Logo on top left corner, links to home */}
             <Link to="/" className="absolute top-6 left-6 z-10">
                 <img
-                    src="src/assets/Skyline_img-removebg.png"
+                    src={Skyline_bg}
                     alt="Skyline Logo"
                     className="w-14 h-14 object-contain"
                 />
