@@ -17,7 +17,7 @@ function SignUp(props) {
             return;
         }
         
-        const userData = {
+        const newUser = {
             fullName,
             studentId,
             email,
@@ -26,12 +26,20 @@ function SignUp(props) {
             password,
         };
     
-        // Save to localStorage (simulated backend)
-        localStorage.setItem("user", JSON.stringify(userData));
+        const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Optional: redirect to login page
+        const emailExists = existingUsers.some(user => user.email === email);
+        if (emailExists) {
+            alert("A user with this email already exists.");
+            return;
+        }
+
+        existingUsers.push(newUser);
+        localStorage.setItem("users", JSON.stringify(existingUsers));
+
+        alert("Signup successful!");
         window.location.href = "/login";
-};
+    };
     return (
         <div
             className="min-h-screen flex items-center justify-center"

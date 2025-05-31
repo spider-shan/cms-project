@@ -1,12 +1,13 @@
 import React from 'react';
 
 function Marksheet(props) {
-    const user = JSON.parse(localStorage.getItem("user")) || { studentId: "Unknown" };
+    const user = JSON.parse(localStorage.getItem("loggedInUser")) || { studentId: "Unknown" };
+    const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
     return (
         <div className="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
             <div className="flex flex-col items-center mb-6">
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRruPrVkps01HSioNxNvlz-tbABSDpPZJhRIQ&s"
+                    src={user.profileImg || defaultProfileImg}
                     alt="Student"
                     className="w-24 h-24 rounded-full border-4 border-blue-300 mb-2"
                 />

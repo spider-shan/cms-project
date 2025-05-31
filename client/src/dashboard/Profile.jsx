@@ -1,7 +1,8 @@
 import React from 'react';
 
 function Profile(props) {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
     return (
         <div className="max-w-2xl mx-auto mt-12 bg-gradient-to-br from-blue-50 via-white to-purple-100 shadow-2xl rounded-3xl p-10 relative overflow-hidden">
             {/* Decorative background shapes */}
@@ -11,7 +12,7 @@ function Profile(props) {
                 <div className="relative">
                     <img
                         className="h-28 w-28 rounded-full object-cover border-4 border-blue-500 shadow-lg transition-transform duration-300 hover:scale-105"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRruPrVkps01HSioNxNvlz-tbABSDpPZJhRIQ&s"
+                        src={user.profileImg || defaultProfileImg}
                         alt="Student Avatar"
                     />
                     <span className="absolute bottom-2 right-2 bg-blue-400 border-2 border-white rounded-full w-5 h-5 block shadow-md"></span>

@@ -11,13 +11,15 @@ const { login } = useAuth();
 const navigate = useNavigate();
 const handleSubmit = (e) => {
     e.preventDefault();
-
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-        login(storedUser); // <-- If you have a `login()` method from context
-        navigate('/dashboard');
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+     // Save logged-in user separately
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    login(user); // <-- If you have a `login()` method from context
+    navigate('/dashboard');
     } else {
-        alert("Invalid credentials!");
+    alert("Invalid email or password.");
     }
     
 };
