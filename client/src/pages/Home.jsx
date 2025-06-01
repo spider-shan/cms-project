@@ -5,10 +5,15 @@ import Skyline_bg from '../assets/Skyline_img-removebg.png';
 function Home(props) {
     return (
         <div
+        // Change the background image here
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80')` }}
             className="min-h-screen flex flex-col font-sans relative"
             
         >
-            
+            <div
+                className="absolute inset-0 -z-10 bg-cover bg-center opacity-30"
+                style={{ backgroundImage: `url(${Skyline_bg})` }}
+            />
             {/* Header */}
             <header className="w-full flex justify-between items-center px-8 py-6 z-10">
                 <div className="flex items-center space-x-3">
