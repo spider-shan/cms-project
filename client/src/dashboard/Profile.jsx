@@ -1,8 +1,16 @@
 import React from 'react';
+import { useAuth } from "../context/AuthContext";
+function Profile(props) { 
+    const { user } = useAuth();
+  const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
 
-function Profile(props) {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
+  if (!user) {
+    return (
+      <div className="p-8 text-center text-gray-600">
+        Please login to view your profile.
+      </div>
+    );
+  }
     return (
         <div className="max-w-2xl mx-auto mt-12 bg-gradient-to-br from-blue-50 via-white to-purple-100 shadow-2xl rounded-3xl p-10 relative overflow-hidden">
             {/* Decorative background shapes */}
