@@ -1,8 +1,21 @@
 import React from 'react';
+import { useAuth } from "../context/AuthContext";
 
 function Marksheet(props) {
-    const user = JSON.parse(localStorage.getItem("loggedInUser")) || { studentId: "Unknown" };
-    const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
+ const { user } = useAuth();
+  const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
+
+  if (!user) {
+    return <div className="p-8 text-center">Please login to view your marksheet.</div>;
+  }
+
+  // Load all marksheets from localStorage
+  const allMarksheets = JSON.parse(localStorage.getItem("marksheets")) || [];
+
+  // Find current user's marksheet (assuming one per studentId)
+  const marksheet = allMarksheets.find((m) => m.studentId === user.studentId);
+
+
     return (
         <div className="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
             <div className="flex flex-col items-center mb-6">

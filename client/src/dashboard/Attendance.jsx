@@ -1,10 +1,20 @@
 import React from 'react';
+import { useAuth } from '../context/AuthContext';
 
 function Attendance(props) {
+  const { user } = useAuth();
 
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (!user) {
+    return <div>Please login to see attendance data.</div>;
+  }
 
-    const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
+  // Retrieve attendance data from localStorage
+  const allAttendance = JSON.parse(localStorage.getItem("attendance")) || [];
+
+  // Filter attendance for current user
+  const userAttendance = allAttendance.filter(att => att.studentId === user.studentId);
+
+  const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
 
     return (
         <div className="min-h-screen bg-gray-100 p-8">
