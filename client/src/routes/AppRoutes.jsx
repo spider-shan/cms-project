@@ -9,7 +9,7 @@ import Profile from '../dashboard/Profile';
 import Attendance from '../dashboard/Attendance';
 import Marksheet from '../dashboard/Marksheet';
 import DashboardLayouts from '../layouts/DashboardLayouts';
-
+import ProtectedRoute from './ProtectedRoute';
 
 function AppRoutes(props) {
     return (
@@ -19,7 +19,7 @@ function AppRoutes(props) {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/dashboard" element={<DashboardLayouts/>} >
+            <Route path="/dashboard" element={ <ProtectedRoute><DashboardLayouts/></ProtectedRoute>} >
               <Route index element={<Introduction />} />
              <Route path="intro"   element={<Introduction/>} />
              <Route path="profile" element={<Profile />} />

@@ -1,6 +1,21 @@
 import React from 'react';
+import { useAuth } from '../context/AuthContext';
 
 function Attendance(props) {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Please login to see attendance data.</div>;
+  }
+
+  // Retrieve attendance data from localStorage
+  const allAttendance = JSON.parse(localStorage.getItem("attendance")) || [];
+
+  // Filter attendance for current user
+  const userAttendance = allAttendance.filter(att => att.studentId === user.studentId);
+
+  const defaultProfileImg = "https://www.gravatar.com/avatar/?d=mp";
+
     return (
         <div className="min-h-screen bg-gray-100 p-8">
             <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
@@ -8,14 +23,15 @@ function Attendance(props) {
                 <div className="mb-8">
                     <div className="flex items-center space-x-4">
                         <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRruPrVkps01HSioNxNvlz-tbABSDpPZJhRIQ&s"
+                            src={user.profileImg || defaultProfileImg}
                             alt="Profile"
                             className="w-16 h-16 rounded-full border-2 border-blue-500"
+                            onError={e => { e.target.onerror = null; e.target.src = defaultProfileImg; }}
                         />
                         <div>
-                            <h2 className="text-xl font-semibold">Cristiano Ronaldo</h2>
-                            <p className="text-gray-500">Roll No: 1</p>
-                            <p className="text-gray-500">Course: B.E CSE</p>
+                            <h2 className="text-xl font-semibold">{user.fullName}</h2>
+                            <p className="text-gray-500">{user.studentId}</p>
+                            <p className="text-gray-500">{user.email}</p>
                         </div>
                     </div>
                 </div>
